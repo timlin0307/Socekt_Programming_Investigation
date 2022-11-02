@@ -11,10 +11,10 @@ while True:
     # 32768 is max string length
     data, address_client = sock.recvfrom(32768)
 
-    if len(data) > 0:
-        print("Receive", data, "from proxy")
-        # get string number
-        index = int(str(data).replace('b', '')[7:len(str(data))-2])
+    # if len(data) > 0:
+    print("Receive", data, "from proxy")
+    # get string number
+    index = int(str(data).replace('b', '')[7:len(str(data))-2])
 
-        sock.sendto(b'World %d' % index, (addr, port_destin))
-        print("Send", data, "to client")
+    sock.sendto(b'World %d' % index, (addr, port_destin))
+    print("Send", data, "to client")
