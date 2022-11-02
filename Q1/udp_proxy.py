@@ -12,6 +12,6 @@ while True:
     data, address_server = sock.recvfrom(32768)
 
     if len(data) > 0:
-        print("Receive ", data, " from client")
+        print("Receive", data, "from client")
         sock.sendto(data, (addr, port_destin))
-        print("Forward ", data, " to server")
+        print("Forward", data, "to server")
