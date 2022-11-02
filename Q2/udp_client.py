@@ -7,7 +7,7 @@ port_destin = 5406
 sock_send = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock_recv = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock_recv.bind((addr, port_self))
-sock_recv.settimeout(0.11)  # at least larger than proxy delay
+sock_recv.settimeout(0.12)  # at least larger than proxy delay
 
 for i in range(10000):
     data = b'Hello %d' % (i+1)
