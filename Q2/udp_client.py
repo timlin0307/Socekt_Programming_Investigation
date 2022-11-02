@@ -1,4 +1,5 @@
 import socket
+import time
 
 addr = '127.0.0.1'
 port_self = 5407
@@ -7,6 +8,8 @@ port_destin = 5406
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((addr, port_self))
 sock.settimeout(0.12)  # at least larger than proxy delay
+
+t_start = time.time()
 
 for i in range(10000):
     data = b'Hello %d' % (i+1)
@@ -30,3 +33,8 @@ for i in range(10000):
         except socket.timeout:
             sock.sendto(data, (addr, port_destin))
             print("Re-Send", data, "to proxy")
+
+sock.close()
+
+t_end = time.time()
+print("Total running time : ", t_end - t_start, "second")
