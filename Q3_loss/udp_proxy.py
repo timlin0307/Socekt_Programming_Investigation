@@ -26,7 +26,6 @@ while True:
                 sock.sendto(data, (addr, port_destin))
                 print("Forward", data, "to server without loss")
             else:
-                sock.sendto(b'loss', (addr, port_destin))
                 print("Forward nothing to server")
         else:  # if number is odd
             prob2 = random.randint(0, 9999)
